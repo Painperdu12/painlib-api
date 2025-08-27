@@ -1,5 +1,5 @@
 name: PainLib
 version: '${version}'
-main: org.survivalcraft.painlib.PainLib
+main: org.survivalcraft.painlib.PainLibPlugin
 api-version: '1.19'
 website: www.survivalcraft.org

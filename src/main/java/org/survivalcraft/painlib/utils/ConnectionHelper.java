@@ -2,6 +2,7 @@ package org.survivalcraft.painlib.utils;
 
 import org.bukkit.entity.Player;
 import org.survivalcraft.painlib.PainLib;
+import org.survivalcraft.painlib.PainLibPlugin;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

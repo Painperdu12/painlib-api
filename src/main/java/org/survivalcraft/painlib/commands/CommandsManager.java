@@ -3,15 +3,17 @@ package org.survivalcraft.painlib.commands;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.survivalcraft.painlib.PainLib;
-
 import java.util.HashMap;
 
 public class CommandsManager {
 
-    private final JavaPlugin plugin = PainLib.getInstance().getPlugin();
+    private final JavaPlugin plugin;
     private final HashMap<String, CommandExecutor> executors = new HashMap<>();
     private final HashMap<String, TabCompleter> completers = new HashMap<>();
+
+    public CommandsManager(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
 
     /**
      * Registers a {@link CommandExecutor} with the hooked {@link JavaPlugin}

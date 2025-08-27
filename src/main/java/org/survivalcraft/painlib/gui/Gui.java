@@ -10,6 +10,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.survivalcraft.painlib.PainLib;
+import org.survivalcraft.painlib.PainLibPlugin;
 
 public abstract class Gui implements Listener {
 
