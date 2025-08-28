@@ -10,7 +10,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.survivalcraft.painlib.PainLib;
-import org.survivalcraft.painlib.PainLibPlugin;
 
 public abstract class Gui implements Listener {
 
@@ -19,6 +18,7 @@ public abstract class Gui implements Listener {
     private final Inventory inventory;
     private final Player player;
     private final String name;
+    private boolean registered = false;
 
     public Gui(Player player, String name, int rows) {
         this.inventory = Bukkit.createInventory(null, rows * 9, name);
@@ -34,7 +34,10 @@ public abstract class Gui implements Listener {
         onOpen();
         player.updateInventory();
 
-        Bukkit.getPluginManager().registerEvents(this, plugin);
+        if(!registered) {
+            Bukkit.getPluginManager().registerEvents(this, this.plugin);
+            registered = true;
+        }
     }
 
     public void close() {
