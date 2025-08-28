@@ -7,6 +7,7 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -63,5 +64,20 @@ public abstract class Gui implements Listener {
             event.setCancelled(true);
             onClick(event.getSlot(), event.getCurrentItem(), event.getClick());
         }
+    }
+
+    @EventHandler
+    public void onPlayerCloseInventory(InventoryCloseEvent event) {
+        if(event.getInventory() == this.inventory) {
+            this.onClose();
+
+            if(!GuiManager.isGuiManaged(this.getClass())) {
+                HandlerList.unregisterAll(this);
+            }
+        }
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }
