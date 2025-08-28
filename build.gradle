@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'org.survivalcraft'
-version = '1.6.5'
+version = '1.6.6'
 
 repositories {
     mavenCentral()
@@ -28,7 +28,7 @@ publishing {
             from components.java
             groupId = 'org.survivalcraft'
             artifactId = 'painlib'
-            version = '1.6.5'
+            version = '1.6.6'
         }
     }
     repositories {
